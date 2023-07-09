@@ -1,10 +1,4 @@
-/*
-   G e n e r a t e d  by ex4-to-mq4 decompiler FREEWARE 4.0.509.5
-   Website: HtTP : / /wW w .Me T A q u o TES.NeT
-   E-mail : SU P P OrT@ m ET a qU o t es.nE T
-*/
-#property copyright "Copyright © 2014,MAGIC FX FORMULA"
-#property link      "http://www.magicfxformula.com/"
+
 
 #property indicator_chart_window
 #property indicator_buffers 6
