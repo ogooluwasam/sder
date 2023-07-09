@@ -34,6 +34,8 @@ double G_ibuf_168[];
 double G_ibuf_172[];
 double G_ibuf_176[];
 double G_ibuf_180[];
+double StopLossBuffer[];
+double TakeProfitBuffer[];
 
 // E37F0136AA3FFAF149B351F6A4C948E9
 int init() {
@@ -59,6 +61,8 @@ int init() {
    SetIndexBuffer(5, G_ibuf_180);
    SetIndexStyle(5, DRAW_NONE, STYLE_DASHDOTDOT, 2);
    SetIndexDrawBegin(5, G_period_136);
+   SetIndexBuffer(2, StopLossBuffer);
+   SetIndexBuffer(3, TakeProfitBuffer);
    IndicatorDigits(MarketInfo(Symbol(), MODE_DIGITS));
    Gs_100 = " MagicFxFormula(" + AlertON + "," + Gi_140 + ")";
    IndicatorShortName(Gs_100);
@@ -217,6 +221,8 @@ void f0_4(string As_0, double Ad_8, double Ad_16, double Ad_24) {
       if (Ad_16 != 0.0) Ls_32 = ", StopLoss at " + DoubleToStr(Ad_16, 5);
       else Ls_32 = "";
       Alert(" MagicFxFormula: " + As_0 + Ls_48 + Ls_40 + Ls_32 + " ", Symbol(), ", ", Period(), " min chart");
+      StopLossBuffer[0] = Ad_16;  // store the stop loss level in the buffer
+      TakeProfitBuffer[0] = Ad_8;  // store the take profit level in the buffer
       Ls_56 = " MagicFxFormula - " + As_0 + Ls_48;
       Ls_64 = " MagicFxFormula: " + As_0 + Ls_48 + Ls_40 + Ls_32 + " " + Symbol() + ", " + Period() + " min chart";
       if (Email) SendMail(Ls_56, Ls_64);
